@@ -1,0 +1,18 @@
+<div class="querySummary">
+	<div ng-attr-title="Please ensure that you have logged in before you post any query" class="postQuerySpan">
+		<input type=button ui-sref="discussionForumHome.postQuery" ng-disabled="userQueryCtrl.isButtonToBeDisabled()" class="postQueryButton" value="Post your Query">
+	</div>
+	<table ng-repeat="query in userQueryCtrl.userQueries" class="queryTable">
+		<tr class="query">
+			<td colspan="3"><a ui-sref="discussionForumHome.discussionForumDetail({queryId: query.queryId})">{{query.queryText}}</a></td>
+		</tr>
+		<tr style="width:100%" ng-repeat="comment in query.userCommentsList">
+			<td colspan="2" style="width:70%">{{comment.commentText}} </td>
+			<td style="width:15%">{{comment.creationDate | date}} </td>
+			<td style="width:15%">{{comment.user.userName}} </td>
+		</tr>
+		<tr ng-if="query.hasMoreComments">
+			<td class="moreHyperLink" colspan="4"><a ui-sref="discussionForumHome.discussionForumDetail({queryId: query.queryId})">more>></a></td>
+		</tr>
+	</table>
+</div>

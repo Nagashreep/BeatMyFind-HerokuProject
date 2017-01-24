@@ -1,0 +1,82 @@
+@CHARSET "ISO-8859-1";
+
+.welcome-foundation{
+	bottom: 0px;
+	position: fixed;
+	padding-left: 400px;
+	width: 30%;
+	height: 15%;
+}
+
+.welcome-tree{
+/* 	padding-left: 120px; */
+	bottom: 0px;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	opacity: 0.5;
+	
+}
+
+/* .welcome-tree{ */
+/* 	padding-left: 120px; */
+/* 	bottom: 100px; */
+/* 	position: fixed; */
+/* 	width: 75%; */
+/* 	height: 90%; */
+/* 	background-color: transparent; */
+/* 	opacity: 0.5; */
+	
+/* } */
+
+.welcome-cutiePie{
+	padding-left: 8%;
+	bottom: 20%;
+	position: fixed;
+	width: 15%;
+	height: 15%;
+}
+
+.welcome-graniStory{
+	padding-left: 77%;
+	bottom: 20%;
+	position: fixed;
+	width: 15%;
+	height: 15%;
+/* 	-webkit-transform: skewY(30deg); */
+/*  -moz-transform: skewY(-5deg); */
+/*  -O-TRANSFORM: ROTATE(-5DEG); */
+/* 	-ms-transform: rotate(-10deg); */
+	
+}
+
+.welcome-myStory{
+	padding-left: 43%;
+	top: 3%;
+	position: fixed;
+	width: 15%;
+	height: 15%;
+}
+
+.welcome-ideas{
+	padding-left: 18%;
+	bottom: 60%;
+	position: fixed;
+	width: 15%;
+	height: 15%;
+}
+
+.welcome-login{
+	top: 40px;
+	position: fixed;
+	right: 0px;
+	width:10%;
+	height:10%;
+}
+
+.loginText{
+	right: 2%;
+	top:0px;
+	position: fixed;
+}

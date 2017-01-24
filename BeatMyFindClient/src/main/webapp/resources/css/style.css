@@ -1,0 +1,352 @@
+@CHARSET "ISO-8859-1";
+
+body{
+/* 	background-image: url("../images/fallSeason-1.jpg"); */
+/* 	background-color: #ECECEC; */
+/* 	background-color: #87CEFA; */
+/* background-color: orange; */
+/* 	background-image: linear-gradient(#87CEFA, white); */
+/* 	 background: url(images/image_name.jpg) no-repeat center center absolute;  */
+	/* background: url(../images/silver4	.jpg) no-repeat center center absolute;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+	
+/* 	background-repeat: repeat-y; */
+/* 	width:100%; */
+	height:100%;
+/* 	 background: url(http://www.myspacehippo.com/files/glitterbacks//gfb44.gif); */
+	 
+}
+
+.beatMyFindBanner{
+	display:block;
+	background-image: linear-gradient(#87CEFA, white);
+	height:40%;
+	position: relative;
+}
+
+.welcomeMessage{
+	right: 2%;
+	top:15%;
+	font-weight:bold;
+	position: absolute;
+	color: blue;
+}
+
+.loginLink{
+	right: 2%;
+	top:25%;
+	position: absolute;
+	color: blue;
+}
+
+.registerLink{
+	right: 5%;
+	top:10px;
+	position: absolute;
+	color: blue;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.loginImage{
+	top: 7%;
+	position: absolute;
+	right: 2%;
+	width:10%;
+	height:10%;
+}
+
+.loginImageWithForm{
+	top: 26%;
+    position: absolute;
+    right: 25%;
+    width: 4%;
+    height: 20%;
+}
+
+.loginFormLabels{
+	top: 10%;
+	position: absolute;
+	right: 4%;
+	width:50%;
+	text-align: left;
+}
+
+.loginFormFields{
+	top: 13%;
+	position: absolute;
+	right: 1.5%;
+	text-align: left;
+}
+
+.login-button{
+	background-color: blue;
+	border-radius: 10px;
+	font-size: 20px;
+	color: white;
+	width:80%;
+}
+
+.logoutImage{
+	width:30%;
+	height:20%;
+	margin: 4%;
+}
+
+input[type=text], input[type=password]{
+	width:100%;
+	height:30px;
+	border-radius:10px;
+}
+
+.error{
+	color: blue;
+	font-weight: bold;
+}
+
+.successMessage{
+	color: green;
+	font-weight: bold;
+}
+
+.mainMenu{
+	position: absolute;
+	top:20%;
+	left:40%;
+}
+
+.loading-indicator{
+	display:block;
+	width: 70px;
+	position: absolute;
+	left:0;
+	right:0;
+	margin:0 auto;
+	top:40%;
+	z-index: 100;
+	background-color: #FFF;
+}
+
+.loading-indicator img {
+	width: 70px;
+	background-color: #FFF;
+}
+
+.menuTable{
+	width: 100%;
+    position: relative;
+    top: 5%;
+}
+
+.mainMenuNavigation{
+	background-color: gray;
+	color:white;
+	font-weight: bold;
+	height: 50px;
+}
+
+.mainMenuNavigation td{
+	width:33%;
+	text-align: center;
+}
+
+.mainMenuNavigation .active{
+	background-color: #c0c0c0;
+}
+
+.title{
+	font-size: 300%;
+	color: blue;
+	left:1%;
+	top:25%;
+	position: absolute;
+}
+
+.titleImage{
+	height: 20%;
+}
+
+.querySummary, .queryDetail, .newUserlogin{
+ 	position:absolute;
+ 	top:40%;
+ 	left:20%;
+ 	font-family: sans-serif;
+}
+
+
+.myAccountHome{
+	position:absolute;
+ 	top:40%;
+ 	font-family: sans-serif;
+}
+
+.postQuerySpan{
+	width:100%;
+	text-align: center;
+}
+
+.postQueryButton{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: blue;
+	color: white;
+    padding: 1%;
+    border-radius:10px;
+	width:40%;
+}
+
+.postQueryButton:disabled{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #c0d1fe;
+	color: gray;
+	cursor: not-allowed; 
+	padding: 1%;
+    border-radius:10px;
+	width:40%;
+}
+
+.queryTable,.commentsTable{
+	width:100%;
+}
+
+.querySummary table:nth-child(odd), .commentsTable tr:nth-child(odd){
+	background-color: #e0f0fc;
+	color:black;
+}
+
+.querySummary table:nth-child(even), .commentsTable tr:nth-child(even){
+	color:black;
+	background-color: #eeeef0;
+}
+
+.newCommentText, .newQueryText{
+	font-size: 16px;
+}
+
+.closeQueryButton,.submitButton{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: blue;
+	color:white;
+	padding: 1%;
+	border-radius:10px;
+	width:40%;
+}
+
+.closeQueryButton:disabled,.submitButton:disabled{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #c0d1fe;
+	color:gray;
+	padding: 1%;
+	border-radius:10px;
+	width:40%;
+	opacity: 0.65; 
+  	cursor: not-allowed;
+}
+
+.postButton{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: blue;
+	color:white;
+	margin: 25%;
+	padding: 8%;
+	border-radius:10px;
+	width:160%;
+}
+
+.postButton:disabled{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #c0d1fe;
+	color:gray;
+	margin: 25%;
+	padding: 8%;
+	border-radius:10px;
+	width:160%;
+	opacity: 0.65; 
+  	cursor: not-allowed;
+}
+
+.query{
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.moreHyperLink{
+	text-align: right;	
+}
+
+.sidenav{
+	position:absolute;
+	top: 40%;
+}
+
+.sidenav ul, .menu li{
+	margin: 0px;
+	padding: 0px;
+}
+
+.sidenav li{
+	list-style:none;
+	padding:8px 30px;
+	border-radius:10px;
+	border-color:white;
+	height: 40px;
+	width:100px;
+	text-align: center;
+	border: solid;
+	border-color: white;
+	background-color: gray;
+	color:white;
+}
+
+.sidenav a{
+	font-size: 18px;
+	display: block;
+	padding: 10px 10px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidenav .active{
+	background-color: #c0c0c0;
+}
+
+.myAccountHome a{
+	font-size: 20px;
+	color: blue;
+}
+
+.queryToClose{
+	font-size: 120%;
+}
+
+/* .openQueriesLink{
+	background-color: #fab969;
+}
+
+.closedQueriesLink{
+	background-color: #c8fa8f;
+}
+
+.expiredQueriesLink{
+	background-color: #f8fb82;
+}
+
+.openQueriesLink:HOVER{
+	background-color: #f9a237;
+}
+
+.closedQueriesLink:HOVER{
+	background-color: #98f530;
+}
+
+.expiredQueriesLink:HOVER{
+	background-color: #f2f80e;
+} */

@@ -1,0 +1,36 @@
+<div ng-controller="LoginController as loginCtrl" >
+	
+	<div style="width: 100%;" id="initialLogin" ng-show="!loginCtrl.displayForm && !loginCtrl.userAuthenticated">
+		<h3 class="loginLink">Login to contribute</h3>
+		<img alt="login" src="resources/images/loginChristmas.jpg" class="loginImage" ng-click="loginCtrl.toggle()">
+	</div>
+	
+	<div ng-show="loginCtrl.userAuthenticated" class="welcomeMessage">
+		Welcome {{loginCtrl.userName}}
+		<div>
+			<img alt="logout" src="resources/images/logout.jpg" class="logoutImage" ng-click="loginCtrl.logout()">
+		</div>
+	</div>
+	
+	
+	<div style="width: 100%;" id="loginForm" ng-show="loginCtrl.displayForm">
+		<div class="registerLink"><a ui-sref="discussionForumHome.register">Register/Sign up</a></div>
+		<div>
+			<img alt="login" src="resources/images/loginChristmas.jpg" class="loginImageWithForm" ng-click="loginCtrl.toggle()">
+		</div>
+		<div>
+			<div style="width: 21%;" class="loginForm">
+				<br/>User Name <br/> <br/>
+				Password
+			</div>
+			<div class="loginForm">
+				<div class="error" ng-if="loginCtrl.userValidationError">
+					Invalid Credentials <br/>
+				</div>
+				<input type="text" name="userName" ng-model="loginCtrl.user.userName" placeholder="enter User Name" size="25" /> <br/> <br/>
+				 <input type="password" name="password" ng-model="loginCtrl.user.userPassword" placeholder="enter Password" size="25"/> <br/> <br/>
+				<input type="button" value="Login" class="login-button" ng-click="loginCtrl.validateUser()"/>
+			</div>
+		</div>
+	</div>
+</div>

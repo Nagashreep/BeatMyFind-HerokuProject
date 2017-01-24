@@ -1,0 +1,25 @@
+<div class="querySummary">
+	<a ui-sref="discussionForumHome.openDiscussionForumSummary">Back to Open Queries<< </a>
+	<div class="error">
+		{{postQueryCtrl.errorMessage}}
+	</div>
+	<div class="successMessage">
+		{{postQueryCtrl.successMessage}}<br/> <br/>
+		<span ng-if="postQueryCtrl.successMessage!='' && postQueryCtrl.successMessage!='undefined'">
+			<a ui-sref="discussionForumHome.openDiscussionForumSummary">Check your post here!!</a>
+		</span>
+	</div>
+	
+	<form name="postQueryForm">
+		<table>
+			<tr>
+				<td colspan="2">
+					<textarea rows="5" cols="60" class="newQueryText" required ng-model="postQueryCtrl.UserQuery.queryText" placeholder="Enter your query here"></textarea>
+				</td>
+				<td  ng-attr-title="{{postQueryCtrl.titleText}}">
+					<input type="button" class="postButton" name="Post" value="Post" ng-click="postQueryCtrl.postQuery()" ng-disabled="postQueryForm.$invalid"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>

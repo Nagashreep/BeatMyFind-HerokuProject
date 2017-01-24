@@ -1,0 +1,33 @@
+{{userAccountCtrl.userQueries.length}} 1>> {{userAccountCtrl.userQueries.size}}
+<div class="querySummary" ng-show="userAccountCtrl.userQueries.length>0">
+	<div class="error">
+		{{userAccountCtrl.errorMessage}}
+	</div>
+	<div class="successMessage">
+		{{userAccountCtrl.successMessage}}<br/>
+	</div>
+	<table ng-repeat="query in userAccountCtrl.userQueries" class="queryTable">
+		<tr class="queryToClose">
+			<td ng-if="query.queryStatus=='OPEN'" style="width:5%">
+				<input type="checkbox" checklist-model="userAccountCtrl.queryIdsToClose" checklist-value="query.queryId">
+			</td>
+			<td colspan="3" style="width:70%">
+				<a ui-sref="discussionForumHome.discussionForumDetail({queryId: query.queryId})">
+					{{query.queryText}}
+				</a>
+			</td>
+			<td style="width:13%">{{query.creationDate | date}}</td>
+			<td style="width:12%;text-align: right;">{{query.queryStatus}}</td>
+		</tr>
+	</table>
+	<table class="queryTable">
+		<tr>
+			<td>
+				<input type="button" name="Close Query" class="closeQueryButton" value="Close Query" ng-disabled="userAccountCtrl.isButtonToBeDisabled()" ng-click="userAccountCtrl.closeQueries()"/>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="querySummary" ng-show="userAccountCtrl.userQueries.length==0">
+	No content to display
+</div>

@@ -1,0 +1,69 @@
+<div class="newUserlogin">
+	<div class="error">
+		{{newUserCtrl.errorMessage}}
+	</div>
+	<div class="successMessage">
+		{{newUserCtrl.successMessage}}
+	</div>
+	<form name="newUserLoginForm">
+		<table>
+			<tr class="formRow">
+				<td>First Name</td>
+				<td class="inputField">
+					<input type="text" ng-model="newUserCtrl.newUser.firstName" required/>
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td>Middle Name</td>
+				<td class="inputField">
+					<input type="text" ng-model="newUserCtrl.newUser.middleName" />
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td>Last Name</td>
+				<td class="inputField">
+					<input type="text" ng-model="newUserCtrl.newUser.lastName" required/>
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td>Email Address</td>
+				<td class="inputField">
+					<input type="text" ng-model="newUserCtrl.newUser.emailAddress" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<span class="error">{{newUserCtrl.uniqueUserNameError}}</span>
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td width="20%">User Name</td>
+				<td class="inputField">
+					<input type="text" ng-model="newUserCtrl.newUser.userName" required ng-blur="newUserCtrl.checkIfUserNameUnique()"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<span class="error">{{newUserCtrl.passwordMismatchError}}</span>
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td>Password</td>
+				<td class="inputField">
+					<input type="password" ng-model="newUserCtrl.newUser.userPassword" required ng-blur="newUserCtrl.checkIfPasswordsSame()"/>
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td>Confirm Password</td>
+				<td class="inputField">
+					<input type="password" ng-model="newUserCtrl.newUser.confirmUserPassword" required ng-blur="newUserCtrl.checkIfPasswordsSame()"/>
+				</td>
+			</tr>
+			<tr class="formRow">
+				<td colspan="2">
+					<input type="button" value="Submit" ng-click="newUserCtrl.registerUser()" ng-disabled="newUserLoginForm.$invalid" class="submitButton"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>

@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title>Beat My Find</title>
+	<link href="resources/css/style.css" rel="stylesheet" type="text/css">
+	
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+</head>
+<body ng-app="beatMyFindApp" class="body">
+	<div class="beatMyFindBanner">
+		<div>
+			
+			<!-- Login Form -->
+			<login></login>
+			
+			<div class="title" ui-sref="home">
+				<span>Beat My Find</span>
+			</div>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<table class="menuTable">
+			<tr class="mainMenuNavigation">
+				<td ui-sref="home" class="homeLink" ui-sref-active="active">Home</td>
+				<td ui-sref="#" class="dealsLink" ui-sref-active="active">Deals</td>
+				<td ui-sref="discussionForumHome.openDiscussionForumSummary" ui-sref-active="active" class="forumLink">Discussion Forum</td>
+			</tr>
+		</table>
+	</div>
+	
+	<!-- Main body -->
+	<loading class="loading-indicator"></loading>
+	
+	<ui-view>
+		<default-content></default-content>
+	</ui-view>
+	
+	<script src="resources/angular/lib/angular.min.js"> </script>
+	<script src="resources/angular/lib/angular-ui-router.min.js"> </script>
+	<script src="resources/angular/lib/angular-checklist-model.min.js"> </script>
+	<script src="resources/angular/lib/angular-cookies.min.js"> </script>
+	
+	<script src="resources/angular/javascript/beatMyFindApp.module.js"> </script>
+	<script src="resources/angular/javascript/common.service.js"> </script>
+	
+	<script src="resources/angular/javascript/home/homePageDefaultContent.component.js"> </script>
+	
+	<script src="resources/angular/javascript/login/login.controller.js"> </script>
+	<script src="resources/angular/javascript/login/login.service.js"> </script>
+	<script src="resources/angular/javascript/login/login.directive.js"> </script>
+	
+	<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.controller.js"> </script>
+	<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.service.js"> </script>
+	
+	<script src="resources/angular/javascript/loading/loading.component.js"> </script>
+	<script src="resources/angular/javascript/loading/loading.interceptor.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/userquery.controller.js"> </script>
+	<script src="resources/angular/javascript/userquery/userquery.service.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/postquery/postquery.service.js"> </script>
+	<script src="resources/angular/javascript/userquery/postquery/postquery.controller.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/detail/userquery.detail.controller.js"> </script>
+	<script src="resources/angular/javascript/userquery/detail/userquery.detail.service.js"> </script>
+	
+	<script src="resources/angular/javascript/useraccount/useraccount.controller.js"> </script>
+	<script src="resources/angular/javascript/useraccount/useraccount.service.js"> </script>
+	
+	
+	<script src="resources/angular/routes.js"> </script>
+	
+	
+
+</body>
+</html>

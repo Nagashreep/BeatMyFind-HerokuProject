@@ -1,0 +1,34 @@
+<div class="queryDetail">
+	<div class="error">
+		{{userQueryDetailCtrl.errorMessage}}
+	</div>
+	<div class="successMessage">
+		{{userQueryDetailCtrl.successMessage}}
+	</div>
+	<table class="queryTable">
+		<tr class="query">
+			<td width="60%"><a ui-sref="#">{{userQueryDetailCtrl.query.queryText}}</a></td>
+			<td>{{userQueryDetailCtrl.query.creationDate | date}}</td>
+			<td>{{userQueryDetailCtrl.query.user.userName}}</td>
+		</tr>
+	</table>
+	<table class="commentsTable">
+		<tr ng-repeat="comment in userQueryDetailCtrl.query.userCommentsList" style="width=100%">
+			<td style="width=50%">{{comment.commentText}} </td>
+			<td style="width=25%">{{comment.creationDate | date}} </td>
+			<td style="width=25%">{{comment.user.userName}} </td>
+		</tr>
+	</table>
+	<form name="postCommentForm">
+		<table>
+			<tr>
+				<td colspan="2">
+					<textarea rows="5" cols="60" class="newCommentText" required ng-model="userQueryDetailCtrl.UserComment.commentText" placeholder="Enter comment here"></textarea>
+				</td>
+				<td  ng-attr-title="{{userQueryDetailCtrl.titleText}}">
+					<input type="button" class="postButton" name="Post" value="Post" ng-click="userQueryDetailCtrl.postComment()" ng-disabled="userQueryDetailCtrl.isToBeDisabled(postCommentForm.$valid)"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
