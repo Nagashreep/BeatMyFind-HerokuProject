@@ -31,6 +31,10 @@
 				return response
 			});
 		}
+		
+		userAccountService.fetchMyFavQueries = function(){
+			console.log("Function to be implemented");
+		}
 	}
 	
 })();

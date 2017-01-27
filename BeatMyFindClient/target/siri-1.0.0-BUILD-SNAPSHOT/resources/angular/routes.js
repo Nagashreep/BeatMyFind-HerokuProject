@@ -94,14 +94,14 @@
 		})
 		.state('userAccountTemplate.userAccountFavQueries',{
 			url: '/userAccount/favQueries',
-			templateUrl : 'resources/angular/template/userAccount/favQueries.html',
-			controller: 'userAccountController',
+			templateUrl : 'resources/angular/template/userAccount/favQueries.html'
+			/*controller: 'userAccountController',
 			controllerAs: 'userAccountCtrl',
 			resolve: {
 				myQueryList: ['userAccountService', function(userAccountService){
 					return userAccountService.fetchMyFavQueries();
 				}]	
-			}
+			}*/
 		})
 		.state('userAccountTemplate.userAccountEditProfile',{
 			url: '/userAccount/editProfile',

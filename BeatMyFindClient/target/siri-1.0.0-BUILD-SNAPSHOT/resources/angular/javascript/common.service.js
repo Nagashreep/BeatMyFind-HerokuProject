@@ -15,6 +15,11 @@
 			$cookieStore.put("user", user);
 			console.log("fetching value in common service after setting in session: "+$cookieStore.get("user").userId);
 		}
+		commonService.getUser = function(){
+			var user = $cookieStore.get("user");
+			console.log("getting user in common Service: "+user);
+			return user;
+		}
 		commonService.getUserId = function(){
 			if($cookieStore.get("user")==undefined || ($cookieStore.get("user").userId==undefined || $cookieStore.get("user").userId=='')){
 				return "";

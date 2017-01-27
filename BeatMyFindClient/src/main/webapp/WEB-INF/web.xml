@@ -27,7 +27,7 @@
 	
 	<welcome-file-list>
 		<welcome-file>
-			resources/angular/template/home.html
+			resources/angular/template/loginPage.html
 		</welcome-file>
 	</welcome-file-list>
 		
