@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Beat My Find</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		
+		<link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="resources/css/style.css" rel="stylesheet" type="text/css">
+		
+	</head>
+	<body ng-app="beatMyFindApp">
+		<header>
+			<nav class="navbar navbar-default">
+			  <div class="container loginPageTitle">
+			  		<h1>Beat My Find</h1>
+			  </div> <!-- End of container div -->
+			</nav>
+		</header>
+		<ui-view class="mainBody"></ui-view>
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="text-center copyright">&copy; Copyright Beat My Find 2017</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+	
+	<script src="resources/angular/lib/angular.min.js"> </script>
+	<script src="resources/angular/lib/angular-ui-router.min.js"> </script>
+	<script src="resources/angular/lib/angular-checklist-model.min.js"> </script>
+	<script src="resources/angular/lib/angular-cookies.min.js"> </script>
+	<script src="resources/angular/lib/jquery-2.1.4.min.js"> </script>
+	<script src="resources/angular/lib/bootstrap.js"> </script>
+	
+	<script src="resources/angular/javascript/beatMyFindApp.module.js"> </script>
+	<script src="resources/angular/javascript/common.service.js"> </script>
+	
+	<script src="resources/angular/javascript/home/homePageDefaultContent.component.js"> </script>
+	
+	<script src="resources/angular/javascript/login/login.controller.js"> </script>
+	<script src="resources/angular/javascript/login/login.service.js"> </script>
+	<script src="resources/angular/javascript/login/login.directive.js"> </script>
+	
+	<script src="resources/angular/javascript/deals/deals.controller.js"> </script>
+	<script src="resources/angular/javascript/deals/deals.service.js"> </script>
+	
+	<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.controller.js"> </script>
+	<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.service.js"> </script>
+	
+	<script src="resources/angular/javascript/loading/loading.component.js"> </script>
+	<script src="resources/angular/javascript/loading/loading.interceptor.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/userquery.controller.js"> </script>
+	<script src="resources/angular/javascript/userquery/userquery.service.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/postquery/postquery.service.js"> </script>
+	<script src="resources/angular/javascript/userquery/postquery/postquery.controller.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/detail/userquery.detail.controller.js"> </script>
+	<script src="resources/angular/javascript/userquery/detail/userquery.detail.service.js"> </script>
+	
+	<script src="resources/angular/javascript/useraccount/useraccount.controller.js"> </script>
+	<script src="resources/angular/javascript/useraccount/useraccount.service.js"> </script>
+	
+	
+	<script src="resources/angular/routes.js"> </script>
+</html>

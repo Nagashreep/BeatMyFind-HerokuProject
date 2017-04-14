@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.shrishti.siri.dataAccessDelegate.dao.DataAccessDelegate;
+import com.shrishti.siri.dataAccessDelegate.entity.Editorial;
 import com.shrishti.siri.dataAccessDelegate.entity.UserComment;
 import com.shrishti.siri.dataAccessDelegate.entity.UserDetails;
 import com.shrishti.siri.dataAccessDelegate.entity.UserQuery;
@@ -32,9 +33,14 @@ public class DataAccessDelegateImpl implements DataAccessDelegate{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	private static Editorial editorial;
+	
 	private static final Logger log = LoggerFactory.getLogger(DataAccessDelegateImpl.class);
 //	private static Log log = LogFactory.getLog(DataAccessDelegateImpl.class);
 	
+	/**
+	 * Retrieve user deatils based on user name and password
+	 */
 	@SuppressWarnings("unchecked")
 	public UserDetails fetchUserDetails(UserDetails user){
 		List<UserDetails> userDetailsList = null;
@@ -64,13 +70,21 @@ public class DataAccessDelegateImpl implements DataAccessDelegate{
 		Session session = this.sessionFactory.openSession();
 		try{
 			System.out.println("Before saving in delegate");
+			log.info("Before saving in delegate");
 			user.setCreationDate(new Date());
+			user.setIsAdmin('N');
+			
+			//Saves the data in primary cache. Gets saved to db on flush/commit or on session closure
 			session.save(user);
 			System.out.println("After saving in delegate: "+user.getUserId());
 			
+			//Pushes the data in primary cache to Db
 			session.flush();
+			
+			//Refreshes the data in user variable with data from DB
 			session.refresh(user);
 		}catch(Exception e){
+			log.error("Exception while saving user: "+e.getMessage());
 			e.printStackTrace();
 		}
 		return user;
@@ -247,7 +261,6 @@ public class DataAccessDelegateImpl implements DataAccessDelegate{
 			}
 			
 			int userId = userQueries.iterator().next().getUser().getUserId();
-//			session.refresh(userQueries);
 			transaction.commit();
 			
 			Criteria criretia = session.createCriteria(UserQuery.class);
@@ -258,6 +271,48 @@ public class DataAccessDelegateImpl implements DataAccessDelegate{
 			e.printStackTrace();
 		}
 		return queries;
+	}
+	
+	public boolean publishEditorial(Editorial editorial){
+		Session session = this.sessionFactory.openSession();
+		try{
+			
+			Editorial editorialInSession = (Editorial) session.createCriteria(Editorial.class).uniqueResult();
+			if(editorialInSession!=null){
+				editorialInSession.setHeadingText(editorial.getHeadingText());
+				editorialInSession.setMainContent(editorial.getMainContent());
+				editorialInSession.setUser(editorial.getUser());
+				editorialInSession.setEditorialDate(new Date());
+				session.save(editorialInSession);
+			}else{
+				editorial.setEditorialDate(new Date());
+				session.save(editorial);
+			}
+			
+			//Refresh the cache after save
+			DataAccessDelegateImpl.editorial = editorial;
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public Editorial retrieveEditorial(){
+		if(DataAccessDelegateImpl.editorial!=null){
+			return DataAccessDelegateImpl.editorial;
+		}else{
+			Session session = this.sessionFactory.openSession();
+			Editorial editorial = null;
+			try{
+				
+				editorial = (Editorial) session.createCriteria(Editorial.class).uniqueResult();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return editorial;
+		}
 	}
 
 	public SessionFactory getSessionFactory() {

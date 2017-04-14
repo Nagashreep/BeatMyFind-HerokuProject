@@ -11,11 +11,22 @@
 			url:'/',
 			templateUrl:'resources/angular/template/home/homePageDefaultContent.html'
 		})
-		.state('discussionForumHome',{
-			templateUrl:'resources/angular/template/discussionForum/forumTemplate.html',
+		.state('appTemplateBeforeLogging',{
+			templateUrl:'resources/angular/template/appTemplate/appTemplateBeforeLogging.html',
 			abstract: true
 		})
-		.state('discussionForumHome.openDiscussionForumSummary',{
+		.state('appTemplateAfterLogging',{
+			templateUrl:'resources/angular/template/appTemplate/appTemplateAfterLogging.html',
+			abstract: true
+		})
+		.state('appTemplateBeforeLogging.logout',{
+			url: '/logout',
+			template: "Thank you for using the application. If you wish to login again, please click on this link <a href='/BeatMyFind'>Login</a>",
+			controller: function(CommonService) {
+				CommonService.removeUser();
+			}
+		})
+		.state('appTemplateAfterLogging.openDiscussionForumSummary',{
 			url: '/openDiscussionForum',
 			templateUrl: 'resources/angular/template/discussionForum/forumSummary.html',
 			controller: 'UserQueryController',
@@ -26,7 +37,7 @@
 				}]
 			}
 		})
-		.state('discussionForumHome.closedDiscussionForumSummary',{
+		.state('appTemplateAfterLogging.closedDiscussionForumSummary',{
 			url: '/closedDiscussionForum',
 			templateUrl: 'resources/angular/template/discussionForum/forumSummary.html',
 			controller: 'UserQueryController',
@@ -37,7 +48,7 @@
 				}]
 			}
 		})
-		.state('discussionForumHome.expiredDiscussionForumSummary',{
+		.state('appTemplateAfterLogging.expiredDiscussionForumSummary',{
 			url: '/expiredDiscussionForum',
 			templateUrl: 'resources/angular/template/discussionForum/forumSummary.html',
 			controller: 'UserQueryController',
@@ -48,7 +59,7 @@
 				}]
 			}
 		})
-		.state('discussionForumHome.discussionForumDetail',{
+		.state('appTemplateAfterLogging.discussionForumDetail',{
 			url : '/detail/{queryId}',
 			templateUrl : 'resources/angular/template/discussionForum/forumDetail.html',
 			controller: 'UserQueryDetailController',
@@ -59,29 +70,30 @@
 				}]
 			}
 		})
-		.state('discussionForumHome.postQuery',{
+		.state('appTemplateAfterLogging.postQuery',{
 			url: '/postQuery',
 			templateUrl : 'resources/angular/template/discussionForum/postQuery.html',
 			controller: 'PostQueryController',
 			controllerAs: 'postQueryCtrl'
 		})
-		.state('register',{
+		.state('appTemplateBeforeLogging.register',{
 			url: '/register',
 			templateUrl : 'resources/angular/template/login/newUserRegistration.html',
 			controller: 'NewUserRegistrationController',
 			controllerAs: 'newUserCtrl'
 		})
-		.state('userAccountHome',{
+		.state('appTemplateAfterLogging.userAccountHome',{
 			url: '/userAccount/home',
-			templateUrl : 'resources/angular/template/userAccount/userAccountHome.html'
+			templateUrl : 'resources/angular/template/userAccount/userAccountHome.html',
+			controller: 'UserAccountHomeController',
+			controllerAs: 'userAccountHomeCtrl'
 		})
-		.state('userAccountTemplate',{
+		.state('appTemplateAfterLogging.userAccountTemplate',{
 			templateUrl:'resources/angular/template/userAccount/userAccountTemplate.html',
 			abstract: true
 		})
-		
-		//To be fixed
-		.state('userAccountTemplate.userAccountCloseQueries',{
+		//Reason for closing to be added
+		.state('appTemplateAfterLogging.userAccountTemplate.userAccountCloseQueries',{
 			url: '/userAccount/closeQueries',
 			templateUrl : 'resources/angular/template/userAccount/closeQueries.html',
 			controller: 'UserAccountController',
@@ -92,7 +104,19 @@
 				}]	
 			}
 		})
-		.state('userAccountTemplate.userAccountFavQueries',{
+		.state('appTemplateAfterLogging.dealsHome',{
+			url: '/deals/home',
+			templateUrl: 'resources/angular/template/deals/dealsHome.html',
+			controller: 'DealsController',
+			controllerAs: 'dealsCtrl',
+			resolve: {
+				editorial: ['EditorialService', function(EditorialService){
+					return EditorialService.retrieve();
+				}]	
+			}
+		})
+		//To be fixed
+		.state('appTemplateAfterLogging.userAccountTemplate.userAccountFavQueries',{
 			url: '/userAccount/favQueries',
 			templateUrl : 'resources/angular/template/userAccount/favQueries.html'
 			/*controller: 'userAccountController',
@@ -103,9 +127,20 @@
 				}]	
 			}*/
 		})
-		.state('userAccountTemplate.userAccountEditProfile',{
+		.state('appTemplateAfterLogging.userAccountTemplate.userAccountEditProfile',{
 			url: '/userAccount/editProfile',
 			templateUrl : 'resources/angular/template/userAccount/editProfile.html'
+		})
+		.state('appTemplateAfterLogging.userAccountTemplate.editorialContent',{
+			url:'/userAccount/editorial',
+			templateUrl: 'resources/angular/template/userAccount/editorial.html',
+			controller: 'EditorialController',
+			controllerAs: 'editorialCtrl',
+			resolve: {
+				editorial: ['EditorialService', function(EditorialService){
+					return EditorialService.retrieve();
+				}]	
+			}
 		});
 	}
 })();

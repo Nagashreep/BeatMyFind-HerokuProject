@@ -1,8 +1,6 @@
 package com.shrishti.siri.presentation.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.shrishti.siri.dataAccessDelegate.entity.UserQuery;
 import com.shrishti.siri.service.UserQueryService;
 
@@ -49,17 +46,14 @@ public class UserQueryController {
 	}
 	
 	@RequestMapping("/addUserQuery")
-	public Map<String, String> fetchQueryDetails(@RequestBody UserQuery userQuery){
+	public boolean fetchQueryDetails(@RequestBody UserQuery userQuery){
 		System.out.println("Query in controller: "+userQuery.toString());
-		Map<String, String> resultantMap = new HashMap<String, String>();
 		try{
 			userQueryService.addUserQuery(userQuery);
-			resultantMap.put("Result", "Success");
-			return resultantMap;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			resultantMap.put("Result", "Error");
-			return resultantMap;
+			return false;
 		}
 	}
 

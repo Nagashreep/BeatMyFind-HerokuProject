@@ -1,69 +1,57 @@
-<div class="newUserlogin">
-	<div class="error">
-		{{newUserCtrl.errorMessage}}
+<div class="container newUserRegistrationForm">
+	<div class="row">
+		<a href="/BeatMyFind">>>Back</a>
+		<div class="alert alert-danger" role="alert" ng-if="newUserCtrl.errorMessage">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  {{newUserCtrl.errorMessage}}
+		</div>
+		<div class="alert alert-success" role="alert" ng-if="newUserCtrl.successMessage">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Success:</span>
+		  {{newUserCtrl.successMessage}} <a ui-sref="appTemplateAfterLogging.dealsHome"><span class="glyphicon glyphicon-forward"></span></a>
+		  
+		</div>
+		<form name="newUserLoginForm">
+			<div class="form-group required">
+			  <label for="firstName">First Name</label>
+			  <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="newUserCtrl.newUser.firstName" required>
+			</div>
+			<div class="form-group">
+			  <label for="middleName">Middle Name</label>
+			  <input type="text" class="form-control" id="middleName" placeholder="Middle Name" ng-model="newUserCtrl.newUser.middleName">
+			</div>
+			<div class="form-group required">
+			  <label for="lastName">Last Name</label>
+			  <input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="newUserCtrl.newUser.lastName" required>
+			</div>
+			<div class="form-group required">
+			  <label for="emailAddress">Email Address</label>
+			  <input type="text" class="form-control" id="emailAddress" placeholder="Email Address" ng-model="newUserCtrl.newUser.emailAddress" required>
+			</div>
+			<div class="alert alert-danger" role="alert" ng-if="newUserCtrl.uniqueUserNameError">
+			  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			  <span class="sr-only">Error:</span>
+			  {{newUserCtrl.uniqueUserNameError}}
+			</div>
+			<div class="form-group required">
+			  <label for="userName">User Name</label>
+			  <input type="text" class="form-control" id="userName" placeholder="User Name" ng-model="newUserCtrl.newUser.userName" required ng-blur="newUserCtrl.checkIfUserNameUnique()">
+			</div>
+			<div class="alert alert-danger" role="alert" ng-if="newUserCtrl.passwordMismatchError">
+			  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			  <span class="sr-only">Error:</span>
+			  {{newUserCtrl.passwordMismatchError}}
+			</div>
+			<div class="form-group required">
+			  <label for="userPassword">Password</label>
+			  <input type="password" class="form-control" id="userPassword" placeholder="Password" ng-model="newUserCtrl.newUser.userPassword" ng-blur="newUserCtrl.checkIfPasswordsSame()" required>
+			</div>	
+			<div class="form-group required">
+			  <label for="confirmPassword">Confirm Password</label>
+			  <input type="password" class="form-control" id="confirmPassword" placeholder="Password" ng-model="newUserCtrl.newUser.confirmUserPassword" ng-blur="newUserCtrl.checkIfPasswordsSame()" required>
+			</div>
+			<button type="submit" class="btn btn-default" ng-click="newUserCtrl.registerUser()" ng-disabled="newUserLoginForm.$invalid">Register</button>
+		</form>
 	</div>
-	<div class="successMessage">
-		{{newUserCtrl.successMessage}}
-	</div>
-	<form name="newUserLoginForm">
-		<table>
-			<tr class="formRow">
-				<td>First Name</td>
-				<td class="inputField">
-					<input type="text" ng-model="newUserCtrl.newUser.firstName" required/>
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td>Middle Name</td>
-				<td class="inputField">
-					<input type="text" ng-model="newUserCtrl.newUser.middleName" />
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td>Last Name</td>
-				<td class="inputField">
-					<input type="text" ng-model="newUserCtrl.newUser.lastName" required/>
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td>Email Address</td>
-				<td class="inputField">
-					<input type="text" ng-model="newUserCtrl.newUser.emailAddress" />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<span class="error">{{newUserCtrl.uniqueUserNameError}}</span>
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td width="20%">User Name</td>
-				<td class="inputField">
-					<input type="text" ng-model="newUserCtrl.newUser.userName" required ng-blur="newUserCtrl.checkIfUserNameUnique()"/>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<span class="error">{{newUserCtrl.passwordMismatchError}}</span>
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td>Password</td>
-				<td class="inputField">
-					<input type="password" ng-model="newUserCtrl.newUser.userPassword" required ng-blur="newUserCtrl.checkIfPasswordsSame()"/>
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td>Confirm Password</td>
-				<td class="inputField">
-					<input type="password" ng-model="newUserCtrl.newUser.confirmUserPassword" required ng-blur="newUserCtrl.checkIfPasswordsSame()"/>
-				</td>
-			</tr>
-			<tr class="formRow">
-				<td colspan="2">
-					<input type="button" value="Submit" ng-click="newUserCtrl.registerUser()" ng-disabled="newUserLoginForm.$invalid" class="submitButton"/>
-				</td>
-			</tr>
-		</table>
-	</form>
 </div>

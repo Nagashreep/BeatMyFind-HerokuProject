@@ -1,9 +1,16 @@
-<div class="myAccountHome">
-	<ul>
-		<li><a ui-sref="userAccountTemplate.userAccountCloseQueries">Close Queries</a> <br/><br/></li>
-		
-		<li><a ui-sref="userAccountTemplate.userAccountFavQueries">My favorite Queries</a> <br/><br/></li>
-		
-		<li><a ui-sref="userAccountTemplate.userAccountEditProfile">Edit Profile</a></li>
-	</ul>
+<div class="cotainer">
+	<div class="row">
+		<div class="myAccountHome">
+			<ul>
+				<li><a ui-sref="appTemplateAfterLogging.userAccountTemplate.userAccountCloseQueries">Close Queries</a> </li>
+				
+				<li><a ui-sref="appTemplateAfterLogging.userAccountTemplate.userAccountFavQueries">My favorite Queries</a> </li>
+				
+				<li><a ui-sref="appTemplateAfterLogging.userAccountTemplate.userAccountEditProfile">Edit Profile</a></li>
+				
+				<li ng-show="userAccountHomeCtrl.showEditorialLink"><a ui-sref="appTemplateAfterLogging.userAccountTemplate.editorialContent">Add/update editorial content</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
+

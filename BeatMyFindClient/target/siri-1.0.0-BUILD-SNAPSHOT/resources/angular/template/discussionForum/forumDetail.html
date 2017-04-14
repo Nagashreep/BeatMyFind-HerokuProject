@@ -1,4 +1,9 @@
-<div class="queryDetail">
+<div class="list-group col-md-2">
+	<a ui-sref="appTemplateAfterLogging.openDiscussionForumSummary" ui-sref-active="active" class="list-group-item">Open Queries</a>
+	<a ui-sref="appTemplateAfterLogging.closedDiscussionForumSummary" ui-sref-active="active" class="list-group-item">Closed Queries</a>
+	<a ui-sref="appTemplateAfterLogging.expiredDiscussionForumSummary" ui-sref-active="active" class="list-group-item">Expired Queries</a>
+</div>
+<div class="queryDetail col-md-10">
 	<div class="error">
 		{{userQueryDetailCtrl.errorMessage}}
 	</div>

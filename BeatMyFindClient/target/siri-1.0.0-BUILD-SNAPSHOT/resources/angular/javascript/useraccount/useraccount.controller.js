@@ -5,13 +5,23 @@
 	angular.module('beatMyFindApp')
 	.controller('UserAccountController',UserAccountController);
 	
-	UserAccountController.$inject = ['userQueryList','UserAccountService']
-	function UserAccountController(userQueryList,UserAccountService){
+	UserAccountController.$inject = ['userQueryList','UserAccountService', 'CommonService']
+	function UserAccountController(userQueryList,UserAccountService,CommonService){
 		var userAccountCtrl = this;
 		
 		userAccountCtrl.userQueries = userQueryList;
 		
 		userAccountCtrl.queryIdsToClose = [];
+		
+		userAccountCtrl.user = CommonService.getUser();
+		
+		if(userAccountCtrl.user.isAdmin=='Y'){
+			userAccountCtrl.showEditorialLink = true;
+		}else{
+			userAccountCtrl.showEditorialLink = false;
+		}
+		
+		console.log("showEditorialLink: "+userAccountCtrl.showEditorialLink);
 		
 		userAccountCtrl.closeQueries = function(){
 			var promise = UserAccountService.closeQueries(userAccountCtrl.queryIdsToClose);

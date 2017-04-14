@@ -1,9 +1,9 @@
-<nav class="sidenav">
-	<ul>
-		<li class="closeQueriesLink" ui-sref="userAccountTemplate.userAccountCloseQueries" ui-sref-active="active">Close Queries</li>
-		<li class="favQueriesLink" ui-sref="userAccountTemplate.userAccountFavQueries" ui-sref-active="active">Favorite Queries </li>
-		<li class="editProfileLink" ui-sref="userAccountTemplate.userAccountEditProfile" ui-sref-active="active">Edit Profile </li>
-	</ul>
-</nav>
-
-<ui-view></ui-view>
+<div class="list-group col-md-2">
+	<a class="list-group-item" ui-sref="appTemplateAfterLogging.userAccountTemplate.userAccountCloseQueries" ui-sref-active="active">Close Queries</a>
+	<a class="list-group-item" ui-sref="appTemplateAfterLogging.userAccountTemplate.userAccountFavQueries" ui-sref-active="active">Favorite Queries </a>
+	<a class="list-group-item" ui-sref="appTemplateAfterLogging.userAccountTemplate.userAccountEditProfile" ui-sref-active="active">Edit Profile </a>
+	<a class="list-group-item" ui-sref="appTemplateAfterLogging.userAccountTemplate.editorialContent" ui-sref-active="active"  ng-show="userAccountCtrl.showEditorialLink">Add/update editorial content </a>
+</div>
+<div class="userAccountBody col-md-10">
+	<ui-view></ui-view>
+</div>

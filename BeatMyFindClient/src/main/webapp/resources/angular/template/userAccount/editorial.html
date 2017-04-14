@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<form id="editorialForm">
+			<div  ng-show="!editorialCtrl.showEditorialPreview">
+				<div class="form-group required">
+					<label for="heading">Heading</label>
+					<input type="text" class="form-control" id="heading" placeholder="Heading Text" ng-model="editorialCtrl.editorial.headingText">
+				</div>
+				<div class="form-group required">
+					<label for="mainContent">Main Content</label>
+					<textarea rows="20" cols="50" class="form-control" id="mainContent" placeholder="Content Text" ng-model="editorialCtrl.editorial.mainContent"></textarea>
+				</div>
+			</div>
+			
+			<div ng-show="editorialCtrl.showEditorialPreview" close="editorialCtrl.cancel()" class="editorialPara">
+				<h1>{{editorialCtrl.editorial.heading}}</h1>
+				<div ng-bind-html="editorialCtrl.editorial.mainContentFormatted"></div>
+			</div>
+			<div class="buttonGroup">
+				<button type="button" class="btn btn-default" ng-click="editorialCtrl.preview()" ng-show="!editorialCtrl.showEditorialPreview">Preview</button>
+				<button type="submit" class="btn btn-default" ng-click="editorialCtrl.back()" ng-show="editorialCtrl.showEditorialPreview">Back</button>
+				<button type="submit" class="btn btn-default" ng-click="editorialCtrl.publish()">Publish</button>
+			</div>
+		</form>
+	</div>
+</div>

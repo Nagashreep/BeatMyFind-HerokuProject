@@ -41,6 +41,12 @@ public class UserDetails implements Serializable{
 	
 	@Column(name="Creation_Date")
 	private Date creationDate;
+	
+	@Column(name="Updation_Date")
+	private Date updationDate;
+	
+	@Column(name="Is_Admin")
+	private Character isAdmin;
 
 	public int getUserId() {
 		return userId;
@@ -104,6 +110,22 @@ public class UserDetails implements Serializable{
 
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
+	}
+	
+	public Date getUpdationDate() {
+		return updationDate;
+	}
+
+	public void setUpdationDate(Date updationDate) {
+		this.updationDate = updationDate;
+	}
+
+	public Character getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Character isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	@Override

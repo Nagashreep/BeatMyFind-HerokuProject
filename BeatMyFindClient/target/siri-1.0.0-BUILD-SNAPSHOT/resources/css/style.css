@@ -2,14 +2,42 @@
 
 html, body{
 	height: 100%;
+	overflow: hidden;
 }
 
 body{
 	position: relative;
+	background-color: #f8f8f8;
+}
+
+.navbar.navbar-default{
+	background-color: #8b546b;
+	color: white;
 }
 
 .navbar{
 	min-height: 10%;
+}
+
+#nav-list li a span{
+	padding: 14px 25px;
+    text-align: center;
+	border-radius: 2px;
+}
+
+#nav-list li a span:HOVER{
+	background-color: gray;
+	font-weight: bold;
+}
+
+.loginPageTitle{
+	text-align: center;
+}
+
+.copyright{
+	margin-top: 4%;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 .container .navbar-text{
@@ -18,28 +46,69 @@ body{
 }
 
 #aboutus-section{
-	position:relative;
+	position:absolute;
+	bottom: 10%;
 	height: 30%;
 }
 
 #aboutus-section .row{
-	position: absolute;
-	bottom: 0px;
+	position: relative;
+	height: 40%;
+}
+
+.form-group.required label:after {
+	content:"*";
+	color:red;
 }
 
 .footer{
 	position:absolute;
-    background-color: #f8f8f8;
+    background-color: #8b546b;
     border-color: #e7e7e7;
     border-radius: 4px;
     min-height: 10%;
     border: 1px solid transparent;
     bottom: 0px;
     width: 100%;
+    color: white;
 }
 
 .btn-default{
 	background-color: #f8f8f8;
+}
+
+.editorTip{
+	height:500px;
+}
+
+.items{
+	overflow-y: auto;
+	height: 400px;
+}
+
+.item:nth-child(even){
+/* 	background-color: lightyellow; */
+	background-color: #eeeef0;
+}
+
+.item:nth-child(odd){
+/* 	background-color: #fbd8fc; */
+	background-color: #e0f0fc;
+}
+
+.price{
+	display: block;
+	font-weight: bolder;
+}
+
+.dealsSection{
+	height: 600px;
+	background-image: linear-gradient(#e2d918, white);
+    padding-top: 2%;
+}
+
+.resultSection{
+	padding-top: 2%;
 }
 
 /* #login-content .row div:nth-child(2){
@@ -54,10 +123,23 @@ body{
 		width: 50%;
 	}
 	
+	label{
+		width: 100px;
+	}
+	
 	#loginForm{
 		margin-left: 30%;
 		margin-bottom: 5%;
 		margin-top: 10%; 
+	}
+	
+	.newUserRegistrationForm .alert{
+		width: 60%;
+	}
+	
+	.searchForm .btn{
+		margin-left: 33%;
+		width: 50%;
 	}
 	
 }
@@ -94,12 +176,8 @@ body{
 }
 
 .registerLink{
-	right: 5%;
-	top:10px;
-	position: absolute;
-	color: blue;
+	margin-top: 3%;
 	font-size: 18px;
-	font-weight: bold;
 }
 
 .loginImage{
@@ -220,18 +298,48 @@ input[type=text], input[type=password]{
 	height: 20%;
 }
 
-.querySummary, .queryDetail, .newUserlogin{
- 	position:absolute;
- 	top:40%;
- 	left:20%;
+.querySummary, .queryDetail, .userAccountBody{
  	font-family: sans-serif;
 }
 
 
 .myAccountHome{
 	position:absolute;
- 	top:40%;
+ 	left:35%;
+ 	top: 20%;
  	font-family: sans-serif;
+ 	width:100%;
+ 	height:100%;
+}
+
+.myAccountHome a{
+	display: block;
+    font-size: 20px;
+    color: black;
+    padding: 2%;
+    width: 25%;
+    height: 5%;
+    border-radius: 8px;
+    text-align: center;
+/*     background-color: #337ab7; */
+    background-image: linear-gradient(#e2d918, white);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.myAccountHome a:hover, .myAccountHome a:focus {
+    opacity:0.5;
+    text-decoration: none;
+}
+
+.myAccountHome li{
+	list-style: none;
+	height: 10px;
+	border-radius: 2px;
+	padding: 5px;
+	height: 80px;
 }
 
 .postQuerySpan{
@@ -246,7 +354,8 @@ input[type=text], input[type=password]{
 	color: white;
     padding: 1%;
     border-radius:10px;
-	width:40%;
+	width:20%;
+	margin-top: 1%;
 }
 
 .postQueryButton:disabled{
@@ -257,15 +366,22 @@ input[type=text], input[type=password]{
 	cursor: not-allowed; 
 	padding: 1%;
     border-radius:10px;
-	width:40%;
+	width:20%;
+	margin-top: 1%;
 }
 
 .queryTable,.commentsTable{
 	width:100%;
 }
 
+.scrollableContent{
+	overflow-y: auto; 
+	height: auto;
+}
+
 .querySummary table:nth-child(odd), .commentsTable tr:nth-child(odd){
 	background-color: #e0f0fc;
+/* 	background-image: linear-gradient(#e0f0fc, white); */
 	color:black;
 }
 
@@ -369,13 +485,16 @@ input[type=text], input[type=password]{
 	background-color: #c0c0c0;
 }
 
-.myAccountHome a{
-	font-size: 20px;
-	color: blue;
-}
-
 .queryToClose{
 	font-size: 120%;
+}
+
+.editorialForm{
+	width: 90%;
+}
+
+.buttonGroup{
+	padding-top: 1%;
 }
 
 /* .openQueriesLink{

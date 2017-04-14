@@ -18,7 +18,7 @@
 				data: userQuery
 			})
 			.then(function(response){
-				return response.data;
+				return response;
 			})
 		};
 		

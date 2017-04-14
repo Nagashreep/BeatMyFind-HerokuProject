@@ -49,6 +49,7 @@ public class UserQuery implements Serializable{
 	@OrderBy("creationDate desc")
 	private List<UserComment> userCommentsList;
 	
+	//@Transient is used to indicate that the field should not be persisted to db
 	@Transient
 	private boolean hasMoreComments = false;
 

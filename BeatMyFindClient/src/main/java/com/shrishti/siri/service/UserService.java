@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.shrishti.siri.dataAccessDelegate.dao.DataAccessDelegate;
+import com.shrishti.siri.dataAccessDelegate.entity.Editorial;
 import com.shrishti.siri.dataAccessDelegate.entity.UserDetails;
 import com.shrishti.siri.dataAccessDelegate.entity.UserQuery;
 
@@ -35,6 +35,14 @@ public class UserService {
 	
 	public List<UserQuery> closeUserQueries(String[] queryIdsToClose){
 		return dataAccessDelegate.closeUserQueries(queryIdsToClose);
+	}
+	
+	public boolean publishEditorial(Editorial editorial){
+		return dataAccessDelegate.publishEditorial(editorial);
+	}
+	
+	public Editorial retrieveEditorial(){
+		return dataAccessDelegate.retrieveEditorial();
 	}
 
 }

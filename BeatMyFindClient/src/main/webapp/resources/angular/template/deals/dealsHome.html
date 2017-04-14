@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-sm-12 editorTip">
+			<h1>{{dealsCtrl.editorial.headingText}}</h1>
+			<div ng-bind-html="dealsCtrl.editorial.mainContentFormatted"></div>
+		</div>
+		<div class="col-md-4 col-sm-12 dealsSection">
+			<div class="searchForm">
+				<form id="dealSearchForm">
+					<div class="form-group required">
+						<label for="searchDp" class="col-md-4 col-sm-12">
+					  		Select Category
+					 	</label>
+						<select ng-model="dealsCtrl.dealsSearchModel.searchIndex" id="searchDp" class="form-control">
+							<option value="">Select Category</option>
+							<option ng-repeat="searchIndex in dealsCtrl.searchIndexList" value="{{searchIndex}}">{{searchIndex}}</option>
+						</select>
+					</div>
+					<div class="form-group required">
+					  <label for="searchItem"  class="col-md-4 col-sm-12">
+					  	Search For
+					  </label>
+					  <input type="text" class="form-control" id="searchItem" placeholder="Enter item" ng-model="dealsCtrl.dealsSearchModel.searchString">
+					</div>
+					<button type="submit" class="btn btn-default" ng-click="dealsCtrl.find()">Search</button>
+				</form>
+			</div>	<!-- END of searchForm div -->
+			<div class="resultSection">
+				<div class="items" ng-show="dealsCtrl.showDeals">
+					<div class="item col-md-12" ng-repeat="item in dealsCtrl.items.Item">
+						<div class="itemTitle" ng-if="item.ItemAttributes.Title">
+							<h4><a href="{{item.DetailPageURL}}" target="_blank">{{item.ItemAttributes.Title}}</a></h4>
+						</div>
+						<div class="col-md-6" ng-if="item.MediumImage.URL">
+							<img src="{{item.MediumImage.URL}}" alt="img" onclick="{{item.DetailPageURL}}"/>
+						</div>
+						<div class="col-md-6">
+							<span class="price" ng-if="item.OfferSummary.LowestNewPrice.FormattedPrice">New: {{item.OfferSummary.LowestNewPrice.FormattedPrice}}</span>
+							<span class="price" ng-if="item.OfferSummary.LowestUsedPrice.FormattedPrice">Used: {{item.OfferSummary.LowestUsedPrice.FormattedPrice}}</span>
+							<span class="price" ng-if="item.OfferSummary.LowestCollectiblePrice.FormattedPrice">Collectible: {{item.OfferSummary.LowestCollectiblePrice.FormattedPrice}}</span>
+							<span class="price"><a href="{{item.CustomerReviews.IFrameURL}}" target="_blank">Reviews</a></span>
+						</div>
+						<div class="promotionText">
+							{{item.Promotions.Promotion.Summary.TermsAndConditions}}
+						</div>
+					</div>
+				</div> <!-- END div items -->
+			</div>
+		</div>
+	</div> <!-- END of row div -->
+</div> <!-- END of Container div -->

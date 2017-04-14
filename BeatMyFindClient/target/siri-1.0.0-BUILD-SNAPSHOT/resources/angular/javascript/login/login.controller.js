@@ -4,8 +4,8 @@
 	angular.module('beatMyFindApp')
 	.controller('LoginController', LoginController);
 	
-	LoginController.$inject = ['LoginService','CommonService','$scope'];
-	function LoginController(LoginService,CommonService,$scope){
+	LoginController.$inject = ['LoginService','CommonService','$scope','$state'];
+	function LoginController(LoginService,CommonService,$scope,$state){
 		var loginCtrl = this;
 		loginCtrl.userValidationError = false;
 		loginCtrl.userAuthenticated = CommonService.isUserAuthenticated();
@@ -31,6 +31,8 @@
 		    		loginCtrl.userAuthenticated = true;
 		    		loginCtrl.userName = response.data.userName;
 		    		CommonService.saveUser(response.data);
+		    		console.log("switching state before");
+		    		$state.go('appTemplateAfterLogging.dealsHome');
 	    		}
 	    	}).catch(function(exception){
 	    		console.log("error during login");
@@ -38,13 +40,6 @@
 	    	});
 	    };
 	    
-	    loginCtrl.logout = function(){
-			CommonService.removeUser();
-			loginCtrl.userAuthenticated = false;
-    		loginCtrl.userName = "";
-	    };
-	    
-	   
 	    $scope.$on("SuccessfulLoginEvent", function(event){
 	    	loginCtrl.userAuthenticated = true;
 	    	loginCtrl.userName = CommonService.getUserName();

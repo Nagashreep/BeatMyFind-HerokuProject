@@ -1,8 +1,6 @@
 package com.shrishti.siri.presentation.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.shrishti.siri.dataAccessDelegate.entity.Editorial;
 import com.shrishti.siri.dataAccessDelegate.entity.UserDetails;
 import com.shrishti.siri.dataAccessDelegate.entity.UserQuery;
 import com.shrishti.siri.service.UserService;
@@ -39,8 +38,6 @@ public class UserController {
 	
 	@RequestMapping(value="/isUserNameUnique", method=RequestMethod.POST)
 	public boolean isUserNameUnique(@RequestBody String userName){
-		Map<String,Boolean> resultantMap = new HashMap<String, Boolean>();
-		
 		System.out.println("userName in UserController: "+userName);
 		
 		return userService.isUserNameUnique(userName);
@@ -55,6 +52,16 @@ public class UserController {
 	public List<UserQuery> closeUserQueries(@RequestBody String[] queryIdsToClose){
 		System.out.println("queryIdsToClose>> "+queryIdsToClose);
 		return userService.closeUserQueries(queryIdsToClose);
+	}
+	
+	@RequestMapping(value="/publishEditorial", method=RequestMethod.POST)
+	public boolean publishEditorial(@RequestBody Editorial editorial){
+		return userService.publishEditorial(editorial);
+	}
+	
+	@RequestMapping(value="/retrieveEditorial", method=RequestMethod.GET)
+	public Editorial retrieveEditorial(){
+		return userService.retrieveEditorial();
 	}
 	
 	

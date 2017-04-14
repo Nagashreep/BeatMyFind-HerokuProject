@@ -1,0 +1,48 @@
+<body ng-app="beatMyFindApp">
+	<header>
+		<nav class="navbar navbar-default">
+		  <div class="container">
+		  		<div class="navbar-header">
+			  		<h1>Beat My Find</h1>
+			      	
+			      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+		        </div>
+		
+		        <div id="collapsable-nav" class="collapse navbar-collapse">
+		           <ul id="nav-list" class="nav navbar-nav navbar-right">
+		            <li>
+		              <a ui-sref="appTemplateAfterLogging.dealsHome">
+		                <span class="glyphicon glyphicon-lock" style="color: red;"> Deals</span></a>
+		            </li>
+		            <li>
+		              <a ui-sref="appTemplateAfterLogging.openDiscussionForumSummary">
+		                <span class="glyphicon glyphicon-info-sign" style="color: yellow;"> Discussion Forum</span></a>
+		            </li>
+		            <li>
+		              <a ui-sref="appTemplateAfterLogging.userAccountHome">
+		                <span class="glyphicon glyphicon-user" style="color: blue;"> My Settings</span></a>
+		            </li>
+		            <li>
+		              <a ui-sref="appTemplateBeforeLogging.logout">
+		                <span class="glyphicon glyphicon-off" style="color: orange;"> Logout</span></a>
+		            </li>
+		          </ul><!-- #nav-list -->
+		        </div><!-- .collapse .navbar-collapse -->
+		  </div> <!-- End of container div -->
+		</nav>
+	</header>
+	<ui-view class="mainBody"></ui-view> <!-- CHECK IF THIS IS REQUIRED -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="text-center copyright">&copy; Copyright Beat My Find 2016</div>
+			</div>
+		</div>
+	</footer>
+</body>

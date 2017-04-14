@@ -2,6 +2,7 @@ package com.shrishti.siri.dataAccessDelegate.dao;
 
 import java.util.List;
 
+import com.shrishti.siri.dataAccessDelegate.entity.Editorial;
 import com.shrishti.siri.dataAccessDelegate.entity.UserComment;
 import com.shrishti.siri.dataAccessDelegate.entity.UserDetails;
 import com.shrishti.siri.dataAccessDelegate.entity.UserQuery;
@@ -29,5 +30,9 @@ public interface DataAccessDelegate {
 	public List<UserQuery> fetchUserQueries(int userId);
 	
 	public List<UserQuery> closeUserQueries(String[] queryIdsToClose);
+	
+	public boolean publishEditorial(Editorial editorial);
+	
+	public Editorial retrieveEditorial();
 
 }

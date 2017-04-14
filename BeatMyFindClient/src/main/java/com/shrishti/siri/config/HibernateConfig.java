@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-//@ComponentScan({ "com.websystique.spring.configuration" })
 @PropertySource(value = { "classpath:application.properties" })
 public class HibernateConfig {
 
@@ -49,6 +48,7 @@ public class HibernateConfig {
 	        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
 	        properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
 	        properties.put("hibernate.id.new_generator_mappings", environment.getRequiredProperty("hibernate.id.new_generator_mappings"));
+	        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
 	        return properties;        
 	    }
 	     

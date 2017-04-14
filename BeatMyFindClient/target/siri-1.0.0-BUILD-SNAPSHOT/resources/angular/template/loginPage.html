@@ -14,89 +14,105 @@
 		
 	</head>
 	<body ng-app="beatMyFindApp">
-		<header>
-			<nav class="navbar navbar-default">
-			  <div class="container">
-			  		<h1>Beat My Find</h1>
-			      	<p class="navbar-text navbar-right"><a href="#aboutus-section" class="navbar-link">About Us</a></p>
-			  </div> <!-- End of container div -->
-			</nav>
-		</header>
-		<div id="login-content" class="container" ng-controller="LoginController as loginCtrl>
-			<div class="row">
-				<div class="col-lg-6 col-md-6 visible-md visible-lg">
-					<img src="resources/images/presents.jpg"/>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<form id="loginForm">
-						<div class="alert alert-danger" role="alert" ng-if="loginCtrl.userValidationError">
-						  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-						  <span class="sr-only">Error:</span>
-						  Invalid Credentials
+		<ui-view>
+			<header>
+				<nav class="navbar navbar-default">
+				  <div class="container loginPageTitle">
+				  		<h1>Beat My Find</h1>
+				  </div> <!-- End of container div -->
+				</nav>
+			</header>
+			<div class="main">
+				<div id="login-content" class="container" ng-controller="LoginController as loginCtrl">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 visible-md visible-lg">
+							<img src="resources/images/presents.jpg"/>
 						</div>
-						<!-- add has-error class to mark a field as error field -->
-						<div class="form-group">
-						  <label for="userName"><span class="glyphicon glyphicon-star" style="color:red;"></span>User Name</label>
-						  <input type="text" class="form-control" id="userName" placeholder="User Name" ng-model="loginCtrl.user.userName">
+						<div class="col-lg-6 col-md-6">
+							<form id="loginForm">
+								<div class="alert alert-danger" role="alert" ng-if="loginCtrl.userValidationError">
+								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								  <span class="sr-only">Error:</span>
+								  Invalid Credentials
+								</div>
+								<!-- add has-error class to mark a field as error field -->
+								<div class="form-group required">
+								  <label for="userName">User Name</label>
+								  <input type="text" class="form-control" id="userName" placeholder="User Name" ng-model="loginCtrl.user.userName">
+								</div>
+								<div class="form-group required">
+								  <label for="password">Password</label>
+								  <input type="password" class="form-control" id="password" placeholder="Password" ng-model="loginCtrl.user.userPassword">
+								</div>
+								<button type="submit" class="btn btn-default" ng-click="loginCtrl.validateUser()">Submit</button>
+								<div class="registerLink"><a ui-sref="appTemplateBeforeLogging.register">Register/Sign up</a></div>
+							</form>
 						</div>
-						<div class="form-group">
-						  <label for="password"><span class="glyphicon glyphicon-star" style="color:red;"></span>Password</label>
-						  <input type="password" class="form-control" id="password" placeholder="Password" ng-model="loginCtrl.user.userPassword">
-						</div>
-						<button type="submit" class="btn btn-default" ng-click="loginCtrl.validateUser()">Submit</button>
-					</form>
-				</div>
-			</div> <!-- END OF ROW DIV -->
-		</div> <!-- End of DIV : login-content -->
-		<div id="aboutus-section" class="container">
-			<div class="row">
-				<h3>About Us</h3>
-				<section>
-					Do you think you have the best deal on a product? Post your deal here and see if someone can beat that deal and find a better one!		
-				</section>
+					</div> <!-- END OF ROW DIV -->
+				</div> <!-- End of DIV : login-content -->
+				<div id="aboutus-section" class="container">
+					<div class="row">
+						<h3>About Us</h3>
+						<section>
+							Do you think you have the best deal on a product? Post your deal here and see if someone can beat that deal and find a better one!		
+						</section>
+					</div>
+				</div> <!-- End of DIV: aboutus-section -->
 			</div>
-		</div> <!-- End of DIV: aboutus-section -->
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="text-center">&copy; Copyright Beat My Find 2016</div>
+			<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="text-center copyright">&copy; Copyright Beat My Find 2016</div>
+					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</ui-view>
+		<!-- Loading component -->
+		<loading class="loading-indicator"></loading>
 	</body>
 	
 	<script src="resources/angular/lib/angular.min.js"> </script>
-		<script src="resources/angular/lib/angular-ui-router.min.js"> </script>
-		<script src="resources/angular/lib/angular-checklist-model.min.js"> </script>
-		<script src="resources/angular/lib/angular-cookies.min.js"> </script>
-		
-		<script src="resources/angular/javascript/beatMyFindApp.module.js"> </script>
-		<script src="resources/angular/javascript/common.service.js"> </script>
-		
-		<script src="resources/angular/javascript/home/homePageDefaultContent.component.js"> </script>
-		
-		<script src="resources/angular/javascript/login/login.controller.js"> </script>
-		<script src="resources/angular/javascript/login/login.service.js"> </script>
-		<script src="resources/angular/javascript/login/login.directive.js"> </script>
-		
-		<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.controller.js"> </script>
-		<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.service.js"> </script>
-		
-		<script src="resources/angular/javascript/loading/loading.component.js"> </script>
-		<script src="resources/angular/javascript/loading/loading.interceptor.js"> </script>
-		
-		<script src="resources/angular/javascript/userquery/userquery.controller.js"> </script>
-		<script src="resources/angular/javascript/userquery/userquery.service.js"> </script>
-		
-		<script src="resources/angular/javascript/userquery/postquery/postquery.service.js"> </script>
-		<script src="resources/angular/javascript/userquery/postquery/postquery.controller.js"> </script>
-		
-		<script src="resources/angular/javascript/userquery/detail/userquery.detail.controller.js"> </script>
-		<script src="resources/angular/javascript/userquery/detail/userquery.detail.service.js"> </script>
-		
-		<script src="resources/angular/javascript/useraccount/useraccount.controller.js"> </script>
-		<script src="resources/angular/javascript/useraccount/useraccount.service.js"> </script>
-		
-		
-		<script src="resources/angular/routes.js"> </script>
+	<script src="resources/angular/lib/angular-ui-router.min.js"> </script>
+	<script src="resources/angular/lib/angular-sanitize.min.js"> </script>
+	<script src="resources/angular/lib/angular-checklist-model.min.js"> </script>
+	<script src="resources/angular/lib/angular-cookies.min.js"> </script>
+	<script src="resources/angular/lib/jquery-2.1.4.min.js"> </script>
+	<script src="resources/angular/lib/bootstrap.js"> </script>
+	
+	<script src="resources/angular/javascript/beatMyFindApp.module.js"> </script>
+	<script src="resources/angular/javascript/common.service.js"> </script>
+	
+	<script src="resources/angular/javascript/home/homePageDefaultContent.component.js"> </script>
+	
+	<script src="resources/angular/javascript/login/login.controller.js"> </script>
+	<script src="resources/angular/javascript/login/login.service.js"> </script>
+	<script src="resources/angular/javascript/login/login.directive.js"> </script>
+	
+	<script src="resources/angular/javascript/deals/deals.controller.js"> </script>
+	<script src="resources/angular/javascript/deals/deals.service.js"> </script>
+	
+	<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.controller.js"> </script>
+	<script src="resources/angular/javascript/login/newuserregistration/newUserRegistration.service.js"> </script>
+	
+	<script src="resources/angular/javascript/loading/loading.component.js"> </script>
+	<script src="resources/angular/javascript/loading/loading.interceptor.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/userquery.controller.js"> </script>
+	<script src="resources/angular/javascript/userquery/userquery.service.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/postquery/postquery.service.js"> </script>
+	<script src="resources/angular/javascript/userquery/postquery/postquery.controller.js"> </script>
+	
+	<script src="resources/angular/javascript/userquery/detail/userquery.detail.controller.js"> </script>
+	<script src="resources/angular/javascript/userquery/detail/userquery.detail.service.js"> </script>
+	
+	<script src="resources/angular/javascript/useraccount/useraccounthome.controller.js"> </script>
+	
+	<script src="resources/angular/javascript/useraccount/useraccount.controller.js"> </script>
+	<script src="resources/angular/javascript/useraccount/useraccount.service.js"> </script>
+	
+	<script src="resources/angular/javascript/useraccount/editorial.controller.js"> </script>
+	<script src="resources/angular/javascript/useraccount/editorial.service.js"> </script>
+	
+	<script src="resources/angular/routes.js"> </script>
 </html>

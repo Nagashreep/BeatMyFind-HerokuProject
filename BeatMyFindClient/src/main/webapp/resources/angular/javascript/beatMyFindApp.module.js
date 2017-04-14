@@ -1,8 +1,8 @@
 (function(){
 	"use strict";
 	
-	angular.module('beatMyFindApp',['ui.router','ngCookies','checklist-model'])
-	.constant('basePath', 'http://localhost:8080/BeatMyFind')
+	angular.module('beatMyFindApp',['ui.router','ngCookies','checklist-model','ngSanitize'])
+	.constant('basePath', '/BeatMyFind')
 	.config(config);
 	
 	config.$inject = ['$httpProvider']

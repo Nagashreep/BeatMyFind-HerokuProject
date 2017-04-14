@@ -50,7 +50,7 @@
 					CommonService.saveUser(response.data);
 					newUserCtrl.newUser = {};
 					console.log("user saved successfully");
-					newUserCtrl.successMessage = "User successfully registered.";
+					newUserCtrl.successMessage = "User successfully registered. Click here to access the application";
 					$rootScope.$broadcast("SuccessfulLoginEvent");
 				}else{
 					newUserCtrl.errorMessage = "Error registering the user. Please try again."
