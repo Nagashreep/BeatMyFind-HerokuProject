@@ -2,7 +2,7 @@
 	"use strict";
 	
 	angular.module('beatMyFindApp',['ui.router','ngCookies','checklist-model','ngSanitize'])
-	.constant('basePath', '../')
+	.constant('basePath', '/BeatMyFind')
 	.config(config);
 	
 	config.$inject = ['$httpProvider']
